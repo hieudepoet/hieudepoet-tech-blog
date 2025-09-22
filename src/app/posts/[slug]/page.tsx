@@ -10,6 +10,7 @@ export async function generateStaticParams() {
   // Giả sử bạn lấy danh sách slug từ một nguồn dữ liệu (API, CMS, file, v.v.)
   const posts = [
     { slug: 'aws-cloud-day-2025' },
+    { slug: 'ui-research' },
   ]; // Thay bằng logic thực tế, ví dụ: gọi API hoặc đọc từ database
 
   return posts.map((post) => ({
