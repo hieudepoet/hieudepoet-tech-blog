@@ -5,6 +5,18 @@ interface PostPageProps {
   params: Promise<{ slug: string }>
 }
 
+// app/posts/[slug]/page.jsx
+export async function generateStaticParams() {
+  // Giả sử bạn lấy danh sách slug từ một nguồn dữ liệu (API, CMS, file, v.v.)
+  const posts = [
+    { slug: 'aws-cloud-day-2025' },
+  ]; // Thay bằng logic thực tế, ví dụ: gọi API hoặc đọc từ database
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params
   const post = getPostBySlug(`${slug}.md`)
