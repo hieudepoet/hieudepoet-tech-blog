@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import LetterGlitch from "@/components/Background";
 
 export const metadata: Metadata = {
   title: "HieuDePoet Tech Blog",
@@ -25,7 +15,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-900">
-        <main className="max-w-3xl mx-auto p-6">{children}</main>
+        <div className="background">
+          <LetterGlitch
+            glitchSpeed={50}
+            centerVignette={true}
+            outerVignette={false}
+            smooth={true}
+          />
+        </div>
+        <main className="max-w-3xl mx-auto p-6 relative z-10">{children}</main>
       </body>
     </html>
   )
